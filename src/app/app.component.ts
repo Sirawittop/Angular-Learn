@@ -10,6 +10,6 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'Patiwat : https://github.com/pppatiwatt';
-  imageConverURL = '/patiwat.jpeg'
+  imageConverURL = '/images/patiwat.jpeg'
 
 }
