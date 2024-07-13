@@ -1,16 +1,58 @@
 <div class="container mt-5">
   <div>{{title}}</div>
-  <div>
+  <div (click)="onImageClick()">
     <img [src]="imageConverURL">
   </div>
 </div>
+
+<div class="container mt-5">
+  @if(major != "") {
+  <div>Major: {{major}}</div>
+  }
+</div>
+
+<div class="container mt-5">
+  @for (item of items; track $index) {
+  <div>{{$index}} &nbsp; {{item.name}} &nbsp; {{item.url}}</div>
+  }
+</div>
+
+
+<div class="container mt-5">
+  @switch (skill) {
+  @case ("Basic") {
+  <div>Skill Basic</div>
+  }
+  @case ("Intermediate") {
+  <div>Skill Intermediate</div>
+  }
+  @case ("Advanced") {
+  <div>Skill Advanced</div>
+  }
+  @default {
+  <div>Skill Unknown</div>
+  }
+  }
+</div>
+
+<div class="container mt-5">
+  <div>{{now}}</div>
+  <div>{{now | date}}</div>
+  <div>{{now | date : 'shortDate'}}</div>
+</div>
+
+<div class="container mt-5">
+  <div>{{number}}</div>
+  <div>{{number | number }}</div>
+  <div>{{number | number : '1.2-2'}}</div>
+</div>
+
 
 <div class="container mt-5">
   <button routerLink="/" type="button" class="btn btn-secondary">Home</button>
   <button routerLink="/page1" type="button" class="btn btn-primary m-1">Page 1</button>
   <button routerLink="/page2" type="button" class="btn btn-success m-1">Page 2</button>
   <button routerLink="/page3" type="button" class="btn btn-danger m-1">Page 3</button>
-
 </div>
 
 <router-outlet />
