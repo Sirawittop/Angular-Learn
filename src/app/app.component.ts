@@ -30,4 +30,13 @@ export class AppComponent {
   now = new Date();
 
   number = 5555.5555;
+
+  product = [
+    { id: 1, name: "T Shirt", size: "M", price: 330, releaseDate: new Date() },
+    { id: 2, name: "Polo Shirt", size: "L", price: 500.5, releaseDate: new Date() },
+    { id: 3, name: "Jeans", size: "XL", price: 1000, releaseDate: new Date() },
+    { id: 4, name: "Short", size: "M", price: 200.3, releaseDate: new Date() },
+    { id: 5, name: "Shoes", size: "M", price: 1500, releaseDate: new Date() }
+  ];
+
 }

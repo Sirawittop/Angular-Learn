@@ -47,6 +47,19 @@
   <div>{{number | number : '1.2-2'}}</div>
 </div>
 
+<div class="container mt-5">
+  @for (item of product; track $index) {
+  <div>_________________________</div>
+  <div> {{item.name}} | {{item.size}} | {{item.price | number}} | {{item.releaseDate | date :'shortDate'}}</div>
+  <div>ชื่อสินค้า : {{item.name}}</div>
+  <div>ขนาด : {{item.size}}</div>
+  <div>ราคา : {{item.price | number}}</div>
+  <div>วันที่เปิดตัว : {{item.releaseDate | date :'shortDate'}}</div>
+
+  }
+
+
+</div>
 
 <div class="container mt-5">
   <button routerLink="/" type="button" class="btn btn-secondary">Home</button>
@@ -54,5 +67,6 @@
   <button routerLink="/page2" type="button" class="btn btn-success m-1">Page 2</button>
   <button routerLink="/page3" type="button" class="btn btn-danger m-1">Page 3</button>
 </div>
+
 
 <router-outlet />
