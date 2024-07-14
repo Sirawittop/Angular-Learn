@@ -1,11 +1,12 @@
 import { DatePipe, DecimalPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { ReactiveFormsModule, FormControl, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink, DatePipe, DecimalPipe],
+  imports: [RouterOutlet, RouterLink, DatePipe, DecimalPipe, ReactiveFormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -38,5 +39,17 @@ export class AppComponent {
     { id: 4, name: "Short", size: "M", price: 200.3, releaseDate: new Date() },
     { id: 5, name: "Shoes", size: "M", price: 1500, releaseDate: new Date() }
   ];
+
+  name = new FormControl('');
+
+  profileForm = new FormGroup({
+    firstName: new FormControl('', Validators.required),
+    lastName: new FormControl('', Validators.required)
+  });
+
+  profileFormSubmit() {
+    console.log(this.profileForm.valid)
+    console.log(this.profileForm.value)
+  }
 
 }
