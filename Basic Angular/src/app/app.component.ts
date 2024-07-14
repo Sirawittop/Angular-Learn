@@ -2,6 +2,7 @@ import { DatePipe, DecimalPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { ReactiveFormsModule, FormControl, Validators, FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -51,5 +52,95 @@ export class AppComponent {
     console.log(this.profileForm.valid)
     console.log(this.profileForm.value)
   }
+
+
+
+  constructor(private http: HttpClient) {
+  }
+
+
+  service_path = "https://669345dec6be000fa07a76ef.mockapi.io/todo/v1/topic"
+
+  onGetAll() {
+    console.log("--- onGetAll ---")
+
+    let url = this.service_path
+    this.http.get(url).subscribe(
+      {
+        next: (result) => {
+          console.log(result)
+        }
+      }
+    )
+
+  }
+
+  onGetById() {
+    console.log("--- onGetById ---")
+
+    let id = 1
+    let url = `${this.service_path}/${id}`
+    this.http.get(url).subscribe(
+      {
+        next: (result) => {
+          console.log(result)
+        }
+      }
+    )
+
+  }
+
+  onPost() {
+    console.log("--- onPost ---")
+
+    let url = this.service_path
+    let body = { topic: "Angular" }
+
+    this.http.post(url, body).subscribe(
+      {
+        next: (result) => {
+          console.log(result)
+        }
+      }
+    )
+
+  }
+
+  onPut() {
+    console.log("--- onPut ---")
+
+    let id = 11
+    let url = `${this.service_path}/${id}`
+    let body = { topic: "React" }
+
+    this.http.put(url, body).subscribe(
+      {
+        next: (result) => {
+          console.log(result)
+        }
+      }
+    )
+
+
+  }
+
+  onDelete() {
+    console.log("--- onDelete ---")
+
+    let id = 11
+    let url = `${this.service_path}/${id}`
+    this.http.delete(url).subscribe(
+      {
+        next: (result) => {
+          console.log(result)
+        },
+        error: (err) => {
+          console.log(err.error)
+          alert(`${id} ${err.error}`)
+        }
+      }
+    )
+  }
+
 
 }

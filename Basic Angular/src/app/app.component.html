@@ -1,9 +1,26 @@
 <div class="container mt-5">
+  <button routerLink="/" type="button" class="btn btn-secondary">Home</button>
+  <button routerLink="/page1" type="button" class="btn btn-primary m-1">Page 1</button>
+  <button routerLink="/page2" type="button" class="btn btn-success m-1">Page 2</button>
+  <button routerLink="/page3" type="button" class="btn btn-danger m-1">Page 3</button>
+</div>
+
+
+<div class="container mt-5">
   <div>{{title}}</div>
   <div (click)="onImageClick()">
     <img [src]="imageConverURL">
   </div>
 </div>
+
+<div class="container mt-5 flex">
+  <button class="btn btn-primary" (click)="onGetAll()">Get All</button>
+  <button class="btn btn-primary" (click)="onGetById()">Get ID</button>
+  <button class="btn btn-success" (click)="onPost()">Post</button>
+  <button class="btn btn-info" (click)="onPut()">Put</button>
+  <button class="btn btn-danger" (click)="onDelete()">Delete</button>
+</div>
+
 
 <div class="container mt-5">
   @if(major != "") {
@@ -61,32 +78,23 @@
 
 <div class="container mt-5">
   <label for="name">Name</label>
-  <input type="text" id="name" [formControl]="name">
+  <input class="form-control" type="text" id="name" [formControl]="name">
   <p>Name : {{name.value}}</p>
 </div>
-
 
 <div class="container mt-5">
   <form [formGroup]="profileForm" (ngSubmit)="profileFormSubmit()">
     <label for="first-name">First Name : </label>
-    <input id="first-name" type="text" formControlName="firstName">
+    <input class="form-control" id="first-name" type="text" formControlName="firstName">
 
     <label for="last-name">Last Name : </label>
-    <input id="last-name" type="text" formControlName="lastName">
+    <input class="form-control" id="last-name" type="text" formControlName="lastName">
 
-    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+    <button class="btn btn-primary" type="submit" [disabled]="!profileForm.valid">Submit</button>
   </form>
+  <!-- <p> </p>
   <p> First name : {{profileForm.controls.firstName.value}}</p>
-  <p> Last name : {{profileForm.controls.lastName.value}}</p>
-</div>
-
-
-
-<div class="container mt-5">
-  <button routerLink="/" type="button" class="btn btn-secondary">Home</button>
-  <button routerLink="/page1" type="button" class="btn btn-primary m-1">Page 1</button>
-  <button routerLink="/page2" type="button" class="btn btn-success m-1">Page 2</button>
-  <button routerLink="/page3" type="button" class="btn btn-danger m-1">Page 3</button>
+  <p> Last name : {{profileForm.controls.lastName.value}}</p> -->
 </div>
 
 
